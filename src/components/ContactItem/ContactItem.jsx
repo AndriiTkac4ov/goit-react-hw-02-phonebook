@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+// import {} from "./ContactItem.styled";
 
 export default function ContactItem({ id, name, number, onDelete }) {
     return (

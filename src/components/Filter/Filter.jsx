@@ -1,3 +1,5 @@
+// import {} from "./Filter.styled";
+
 const Filter = ({ value, onChange }) => (
     <label>
         Find contacts by name
