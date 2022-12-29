@@ -10,7 +10,16 @@ class App extends Component {
     filter: '',
   }
 
+  isContactNameInList = contactName => {
+    return this.state.contacts.find(contact => contact.name === contactName);
+  }
+
   addContact = ({ name, number }) => {
+    if (this.isContactNameInList(name)) {
+      alert(`${name} is already in contacts.`);
+      return;
+    }
+
     const newContact = {
       id: nanoid(),
       name,
@@ -50,7 +59,7 @@ class App extends Component {
         <ContactForm
           onSubmit={this.addContact}
         />
-        
+
         <h2>Contacts</h2>
         <Filter
           value={this.state.filter}
