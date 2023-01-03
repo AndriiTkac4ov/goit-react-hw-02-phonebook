@@ -15,7 +15,7 @@ class App extends Component {
     return this.state.contacts.find(contact => contact.name === contactName);
   }
 
-  addContact = ({ name, number }) => {
+  addContact = ({ name, number }, reset) => {
     if (this.isContactNameInList(name)) {
       alert(`${name} is already in contacts.`);
       return;
@@ -30,6 +30,8 @@ class App extends Component {
     this.setState(({ contacts }) => ({
       contacts: [newContact, ...contacts]
     }))
+
+    reset()
   }
 
   deleteContact = (userId) => {
